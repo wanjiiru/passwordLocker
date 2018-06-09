@@ -45,17 +45,10 @@ def main():
 
                             print("password ...")
                             password = input()
-
-                            
-
-
                             save_creds(create_creds(uname,password)) # create and save credentials
                             print ('\n')
-                            print(f"New Account Details {uname} {password} created")
+                            print(f"Your new account with username : '{uname}' and password '{password}' has been successfully created")
                             print ('\n')
-
-
-
 
 if __name__=='__main__':
     main()
