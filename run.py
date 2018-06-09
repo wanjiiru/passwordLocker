@@ -71,9 +71,9 @@ def main():
                             elif log_in!=0:
                                 print("\n")
                                 print(f"Welcome {log_in.uname}! What would you like to do?")
-
-
-                            
+                                while True:
+                                    print("Use the following short short codes : ap - add new password, sp - see your passwords , ex - exit")
+                                    short_code== input()                           
 
 if __name__=='__main__':
     main()
