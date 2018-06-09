@@ -31,7 +31,29 @@ def main():
         print("Hello, welcome to password locker!, What is your name?")
         user_name = input('Name:')
         print(f'hello {user_name}. what would you like to do?')
-        # print('hello {}. what would you like to do?'.format(user_name))
+        print('\n')
+        while True:
+            print("Use the following short short codes : cc - create a new account, lg - log in , ex - exit")
+            short_code = input().lower()
+
+            if short_code == 'cc':
+                            print("New Account")
+                            print("-"*10)
+
+                            print ("username ....")
+                            uname = input()
+
+                            print("password ...")
+                            password = input()
+
+                            
+
+
+                            save_creds(create_creds(uname,password)) # create and save credentials
+                            print ('\n')
+                            print(f"New Account Details {uname} {password} created")
+                            print ('\n')
+
 
 
 
