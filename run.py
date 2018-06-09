@@ -61,9 +61,9 @@ def main():
             elif short_code == "lg":
                             print("Enter username and password to login:")
                             print("-"*50)
-                            username = input("Username: ")
+                            uname = input("Username: ")
                             passwrd = input("Password: ")
-                            log_in = authenticate_creds(username, passwrd)
+                            log_in = authenticate_creds(uname, passwrd)
                             if log_in==0:
                                 print("\n")
                                 print("Invalid username and/or password")
