@@ -28,6 +28,17 @@ class Credential:
                 return True
         return False
 
+
+    @classmethod
+    def authenticate_creds(cls, uname, passwrd):
+        '''
+        Method that checks if the username and password are correct
+        '''
+        for cred in cls.cred_list:
+            if cred.uname == uname and cred.passwrd == passwrd:
+                return cred
+        return 0
+
     @classmethod
     def find_by_uname(cls,uname):
         '''
