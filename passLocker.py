@@ -93,6 +93,18 @@ class UserData:
 
 
 
+    @classmethod
+    def data_exists(cls, number):
+        '''
+        '''
+        for data in cls.user_data_list:
+            if data.acc_id == number:
+                return True
+        return False
+
+
+
+
 
     
 

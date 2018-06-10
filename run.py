@@ -63,13 +63,14 @@ def copy_pass(number, index):
 
 def generate_password(count):
     '''
-    Funstion that generates a random password
+    Function that generates a random password
     '''
 
     password_list = []
     generated_password = random.sample(string.ascii_lowercase + string.digits + string.ascii_uppercase,10)
-    password_list.append(generated_password)
-    return ''.join(password_list)
+    password_list.append(''.join(generated_password))
+    return password_list
+
 
 
 
@@ -124,7 +125,7 @@ def main():
                                         print("Enter username account for {acc_name}.......")
                                         acc_username = input()
                                         print("enter unique id for account")
-                                        acc_id = input()
+                                        acc_id = int(input())
                                         print("What is you preferred password length?")
                                         pass_length = int(input("Password length:"))
                                         acc_password = generate_password(pass_length)
@@ -135,7 +136,8 @@ def main():
                                         print(f"Generated  password for {acc_name} is {acc_password}")
                                         print(".."*10)
 
-                            # elif short_code =="sp":
+                            elif short_code =="sp":
+                                if 
 
 
 
