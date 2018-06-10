@@ -1,3 +1,5 @@
+
+import pyperclip
 class Credential:
 
     cred_list=[]
@@ -56,6 +58,43 @@ class UserData:
     class that generates new instance of user data
     '''
     user_data_list=[]
+
+
+    def __init__(self, acc_name,acc_username, acc_password, acc_id):
+        '''
+        '''
+        self.acc_name = acc_name
+        self.acc_username =  acc_username
+        self.acc_password = acc_password
+        self.acc_id = acc_id
+
+    def create_password(self):
+        '''
+        '''
+        UserData.user_data_list.append(self)
+
+
+    @classmethod
+    def show_user_data(cls, number, index):
+        '''
+        '''
+        for password in cls.user_data_list:
+            if password.acc_id == number:
+                if password.acc_id == index:
+                    return password
+
+
+    @classmethod
+    def copy_password(cls, number, index):
+        '''
+        '''
+        my_password = UserData.show_user_data(number,index)
+        pyperclip.copy(my_password.acc_password)
+
+
+
+
+    
 
 
 
