@@ -67,7 +67,7 @@ def generate_password(count):
     '''
 
     password_list = []
-    generated_password = random.choice(string.ascii_lowercase + string.digits + string.ascii_uppercase )
+    generated_password = random.sample(string.ascii_lowercase + string.digits + string.ascii_uppercase,10)
     password_list.append(generated_password)
     return ''.join(password_list)
 
@@ -113,26 +113,31 @@ def main():
                             elif log_in!=0:
                                 print("\n")
                                 print(f"Welcome {log_in.uname}! What would you like to do?")
+
+
                                 while True:
                                     print("Use the following short short codes : ap - add new password, sp - see your passwords , ex - exit")
-                                    short_code== input()  
-                                    if short_code== "ap":
+                                    shrt_code= input()  
+                                    if shrt_code== "ap":
                                         print("Enter account name such as facebook, instagram or Gmail:.......")
-                                        my_account = input()
+                                        acc_name = input()
+                                        print("Enter username account for {acc_name}.......")
+                                        acc_username = input()
+                                        print("enter unique id for account")
+                                        acc_id = input()
                                         print("What is you preferred password length?")
-                                        pass_length = int(input("Password length"))
+                                        pass_length = int(input("Password length:"))
                                         acc_password = generate_password(pass_length)
-                                        acc_name = log_in.acc_name
-                                        acc_username = log_in.user_name
-                                        acc_id = log_in.acc_id
                                         create_new_data(user_data(acc_name, acc_id, acc_username, acc_password))
                                         print("\nHold on tight....")
                                         time.sleep(1.0)
                                         print("\n")
-                                        print(f"Generated  password for {my_account} is {acc_password}")
+                                        print(f"Generated  password for {acc_name} is {acc_password}")
                                         print(".."*10)
-                            elif short_code = "sp":
-                                
+
+                            # elif short_code =="sp":
+
+
 
 
 
