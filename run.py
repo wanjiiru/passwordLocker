@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 from passLocker import Credential
+from passLocker import UserData
+import random
+import string
+
 
 def create_creds(uname, password):
     '''
@@ -29,6 +33,43 @@ def authenticate_creds(uname, passwrd):
     '''
     '''
     return Credential.authenticate_creds(uname,passwrd)
+
+def user_data(acc_name,acc_username, acc_password, acc_id):
+    '''
+    '''
+    data = UserData(acc_name, acc_username, acc_password, acc_id)
+    return data
+
+
+def create_new_data(mydata):
+    '''
+    '''
+    mydata.create_password()
+
+
+def show_data(mydata, index):
+    '''
+    '''
+    return UserData.show_user_data(mydata, index)
+
+def copy_pass(number, index):
+    '''
+    copies passowrd to the clipboard
+    '''
+    UserData.copy_password(number, index)
+
+
+
+def generate_password(count):
+    '''
+    Funstion that generates a random password
+    '''
+
+    password_list = []
+    generated_password = random.choice(string.ascii_lowercase + string.digits + string.ascii_uppercase )
+    password_list.append(generated_password)
+    return ''.join(password_list)
+
 
 
 
