@@ -22,6 +22,8 @@ class Credential:
     @classmethod
     def creds_exist(cls,uname):
         '''
+        Method that checks if the username exist
+
         '''
         for credential in cls.cred_list:
             if credential.uname==uname:
@@ -42,9 +44,19 @@ class Credential:
     @classmethod
     def find_by_uname(cls,uname):
         '''
+        Method that finds credentials bu username
         '''
         for credential in cls.cred_list:
             if credential.uname==uname:
                 return uname
+
+
+class UserData:
+    '''
+    class that generates new instance of user data
+    '''
+    user_data_list=[]
+
+
 
     
