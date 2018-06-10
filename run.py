@@ -48,16 +48,23 @@ def create_new_data(mydata):
     mydata.create_password()
 
 
-def show_data(mydata, index):
+def show_data(mydata,):
     '''
     '''
-    return UserData.show_user_data(mydata, index)
+    return UserData.show_user_data(mydata)
 
-def copy_pass(number, index):
+
+def copy_pass(number):
     '''
     copies passowrd to the clipboard
     '''
-    UserData.copy_password(number, index)
+    UserData.copy_password(number)
+
+def data_exist(data):
+    '''
+    '''
+    return UserData.data_exists(data)
+
 
 
 
@@ -117,7 +124,7 @@ def main():
 
 
                                 while True:
-                                    print("Use the following short short codes : ap - add new password, sp - see your passwords , ex - exit")
+                                    print("Use the following short short codes : ap - add new password, cp - copy a  password , ex - exit")
                                     shrt_code= input()  
                                     if shrt_code== "ap":
                                         print("Enter account name such as facebook, instagram or Gmail:.......")
@@ -136,8 +143,25 @@ def main():
                                         print(f"Generated  password for {acc_name} is {acc_password}")
                                         print(".."*10)
 
-                            elif short_code =="sp":
-                                if 
+                            elif shrt_code =="cp":
+                                if data_exist(log_in.acc_id):
+                                    print("Enter the unique id of the account password you want to copy")
+                                    get_id = int(input("Unique id : "))
+                                    if get_id<0:
+                                        print(f"{get_id} is not a valid id")
+                                        print("--"*10)
+                                    elif  get_id == log_in.acc_id:
+                                        copy_pass(get_id)
+                                        print("\n")
+                                        print(f"Password {get_id} successfully copied to clipboard, go ahead and paste it")
+                                    else:
+                                        print("You do not have any passwords yet")
+                                        print("--"*10)
+
+                            elif shrt_code == "ex":
+                                print(f"Bye{log_in.uname}")
+
+
 
 
 

@@ -75,7 +75,7 @@ class UserData:
 
 
     @classmethod
-    def show_user_data(cls, number, index):
+    def show_user_data(cls, number):
         '''
         '''
         for password in cls.user_data_list:
@@ -85,10 +85,10 @@ class UserData:
 
 
     @classmethod
-    def copy_password(cls, number, index):
+    def copy_password(cls, number):
         '''
         '''
-        my_password = UserData.show_user_data(number,index)
+        my_password = UserData.show_user_data(number)
         pyperclip.copy(my_password.acc_password)
 
 
