@@ -3,6 +3,7 @@ from passLocker import Credential
 from passLocker import UserData
 import random
 import string
+import time
 
 
 def create_creds(uname, password):
@@ -114,7 +115,26 @@ def main():
                                 print(f"Welcome {log_in.uname}! What would you like to do?")
                                 while True:
                                     print("Use the following short short codes : ap - add new password, sp - see your passwords , ex - exit")
-                                    short_code== input()                           
+                                    short_code== input()  
+                                    if short_code== "ap":
+                                        print("Enter account name such as facebook, instagram or Gmail:.......")
+                                        my_account = input()
+                                        print("What is you preferred password length?")
+                                        pass_length = int(input("Password length"))
+                                        acc_password = generate_password(pass_length)
+                                        acc_name = log_in.acc_name
+                                        acc_username = log_in.user_name
+                                        acc_id = log_in.acc_id
+                                        create_new_data(user_data(acc_name, acc_id, acc_username, acc_password))
+                                        print("\nHold on tight....")
+                                        time.sleep(1.0)
+                                        print("\n")
+                                        print(f"Generated  password for {my_account} is {acc_password}")
+                                        print(".."*10)
+                            elif short_code = "sp":
+                                
+
+
 
 if __name__=='__main__':
     main()
