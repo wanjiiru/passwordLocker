@@ -21,11 +21,11 @@ def save_creds(credential):
     credential.save_creds()
 
 
-def find_creds(uname):
-    '''
-    function to find credentials
-    '''
-    return Credential.find_by_uname(uname)
+# def find_creds(uname):
+#     '''
+#     function to find credentials
+#     '''
+#     return Credential.find_by_uname(uname)
 
 
 def check_existing_cred(uname):
@@ -154,7 +154,7 @@ def main():
                                         print("Enter the account name of  password you want to copy")
                                         get_name = (input("acc name : "))
                                         if data_exist(get_name):
-                                            found_creds = find_creds(get_name)
+                                            found_creds = (get_name)
                                             copy_password(found_creds(acc_password))
                                             print("\n")
                                             print(f"Password {found_creds.acc_name} successfully copied to clipboard, go ahead and paste it")

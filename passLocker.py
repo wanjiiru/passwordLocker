@@ -43,14 +43,14 @@ class Credential:
                 return cred
         return 0
 
-    @classmethod
-    def find_by_uname(cls,uname):
-        '''
-        Method that finds credentials bu username
-        '''
-        for credential in cls.cred_list:
-            if credential.uname==uname:
-                return uname
+    # @classmethod
+    # def find_by_uname(cls,uname):
+    #     '''
+    #     Method that finds credentials bu username
+    #     '''
+    #     for credential in cls.cred_list:
+    #         if credential.uname==uname:
+    #             return uname
 
 
 class UserData:

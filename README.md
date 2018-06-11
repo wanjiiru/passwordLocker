@@ -1,6 +1,6 @@
 # PasswordLocker
 
-## PasswordLocker is a python application that generates and saves passwords for various user accounts
+## PasswordLocker is a python application that generates and saves passwords for multiple user accounts
 
 
 ## Description
