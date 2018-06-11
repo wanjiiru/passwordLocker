@@ -38,4 +38,4 @@ No known bugs so far
 Contact me  for any issues
 
 ### License
-Copyright (c) *
+Copyright (c)
