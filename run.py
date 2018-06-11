@@ -8,6 +8,7 @@ import pyperclip
 
 def create_creds(uname, password):
     '''
+    function that creates new credentials
     '''
     new_cred = Credential(uname,password)
     return new_cred
@@ -15,18 +16,21 @@ def create_creds(uname, password):
 
 def save_creds(credential):
     '''
+    function that saves credentials
     '''
     credential.save_creds()
 
 
 def find_creds(uname):
     '''
+    function to find credentials
     '''
     return Credential.find_by_uname(uname)
 
 
 def check_existing_cred(uname):
     '''
+    function to test if credentials exist
     '''
     return Credential.creds_exist(uname)
 
@@ -37,6 +41,7 @@ def authenticate_creds(uname, passwrd):
 
 def user_data(acc_name,acc_username, acc_password):
     '''
+    Function to authenticate and log in a user
     '''
     data = UserData(acc_name, acc_username, acc_password)
     return data
@@ -44,12 +49,15 @@ def user_data(acc_name,acc_username, acc_password):
 
 def create_new_data(mydata):
     '''
+    Function that creates new data to save user password
     '''
     mydata.create_password()
 
 
 def show_data(mydata,):
     '''
+    function to display the data
+
     '''
     return UserData.show_user_data(mydata)
 
@@ -57,6 +65,7 @@ def show_data(mydata,):
 
 def copy_password(acc_name):
     '''
+    function to copy password to the clipboard
     '''
     my_password = UserData.show_user_data(acc_name)
     pyperclip.copy(my_password.acc_password)
