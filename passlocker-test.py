@@ -31,6 +31,14 @@ class Testcredential(unittest.TestCase):
         self.assertEqual(self.new_creds.uname, "liz")
         self.assertEqual(self.new_creds.passwrd, "pass")
 
+    def test_authentication(self):
+        '''
+        Tests proper autentication for log in purposes
+        '''
+        self.new_creds.save_creds()
+        self.assertEqual(len(Credential.cred_list), 1)
+
+
 
 
 
