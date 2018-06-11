@@ -96,6 +96,18 @@ class TestUserData(unittest.TestCase):
         self.assertEqual(found_user_data.acc_name,test_this.acc_name)
 
 
+    def test_sho_data(self):
+        '''
+        Testing if the data can be displayed.
+        '''
+        self.new_user_data.create_password()
+        test_this = UserData("twitter","liz", "pass")
+        test_this.create_password()
+
+        found_user_data = UserData.show_user_data("twitter")
+        self.assertEqual(found_user_data.acc_name,test_this.acc_name)
+
+
 
 if __name__ == "__main__":
     unittest.main()
