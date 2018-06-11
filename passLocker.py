@@ -60,13 +60,12 @@ class UserData:
     user_data_list=[]
 
 
-    def __init__(self, acc_name,acc_username, acc_password, acc_id):
+    def __init__(self, acc_name,acc_username, acc_password):
         '''
         '''
         self.acc_name = acc_name
         self.acc_username =  acc_username
         self.acc_password = acc_password
-        self.acc_id = acc_id
 
     def create_password(self):
         '''
@@ -75,30 +74,29 @@ class UserData:
 
 
     @classmethod
-    def show_user_data(cls, number):
+    def show_user_data(cls, acc_name):
         '''
         '''
         for password in cls.user_data_list:
-            if password.acc_id == number:
-                if password.acc_id == index:
+            if password.acc_name == acc_name:
                     return password
 
 
-    @classmethod
-    def copy_password(cls, number):
-        '''
-        '''
-        my_password = UserData.show_user_data(number)
-        pyperclip.copy(my_password.acc_password)
+    # @classmethod
+    # def copy_password(cls, acc_name):
+    #     '''
+    #     '''
+    #     my_password = UserData.show_user_data(acc_name)
+    #     pyperclip.copy(my_password.acc_password)
 
 
 
     @classmethod
-    def data_exists(cls, number):
+    def data_exists(cls, acc_name):
         '''
         '''
         for data in cls.user_data_list:
-            if data.acc_id == number:
+            if data.acc_name == acc_name:
                 return True
         return False
 

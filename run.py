@@ -4,7 +4,7 @@ from passLocker import UserData
 import random
 import string
 import time
-
+import pyperclip
 
 def create_creds(uname, password):
     '''
@@ -35,10 +35,10 @@ def authenticate_creds(uname, passwrd):
     '''
     return Credential.authenticate_creds(uname,passwrd)
 
-def user_data(acc_name,acc_username, acc_password, acc_id):
+def user_data(acc_name,acc_username, acc_password):
     '''
     '''
-    data = UserData(acc_name, acc_username, acc_password, acc_id)
+    data = UserData(acc_name, acc_username, acc_password)
     return data
 
 
@@ -54,16 +54,22 @@ def show_data(mydata,):
     return UserData.show_user_data(mydata)
 
 
-def copy_pass(number):
-    '''
-    copies passowrd to the clipboard
-    '''
-    UserData.copy_password(number)
+# def copy_pass(acc_name):
+#     '''
+#     copies passowrd to the clipboard
+#     '''
+#     UserData.copy_password(acc_name)
 
-def data_exist(data):
+def copy_password(acc_name):
     '''
     '''
-    return UserData.data_exists(data)
+    my_password = UserData.show_user_data(acc_name)
+    pyperclip.copy(my_password.acc_password)
+
+def data_exist(acc_name):
+    '''
+    '''
+    return UserData.data_exists(acc_name)
 
 
 
@@ -129,12 +135,10 @@ def main():
                                         acc_name = input()
                                         print("Enter username account for {acc_name}.......")
                                         acc_username = input()
-                                        print("enter unique id for account")
-                                        acc_id = int(input())
                                         print("What is you preferred password length?")
                                         pass_length = int(input("Password length:"))
                                         acc_password = generate_password(pass_length)
-                                        create_new_data(user_data(acc_name, acc_id, acc_username, acc_password))
+                                        create_new_data(user_data(acc_name, acc_username, acc_password))
                                         print("\nHold on tight....")
                                         time.sleep(1.0)
                                         print("\n")
@@ -142,19 +146,16 @@ def main():
                                         print(".."*10)
 
                                     elif shrt_code =="cp":
-                                        if data_exist(acc_id):
-                                            print("Enter the unique id of the account password you want to copy")
-                                            get_id = int(input("Unique id : "))
-                                            if get_id<0:
-                                                print(f"{get_id} is not a valid id")
-                                                print("--"*10)
-                                            elif  get_id == acc_id:
-                                                copy_pass(get_id)
-                                                print("\n")
-                                                print(f"Password {get_id} successfully copied to clipboard, go ahead and paste it")
-                                            else:
-                                                print("You do not have any passwords yet")
-                                                print("--"*10)
+                                        print("Enter the account name of  password you want to copy")
+                                        get_name = (input("acc name : "))
+                                        if data_exist(get_name):
+                                            found_creds = find_creds(get_name)
+                                            copy_password(found_creds.acc_name)
+                                            print("\n")
+                                            print(f"Password {found_creds.acc_password} successfully copied to clipboard, go ahead and paste it")
+                                        else:
+                                            print("You do not have any passwords yet")
+                                            print("--"*10)
 
                                     elif shrt_code == "ex":
                                         print(f"Bye{log_in.uname}")
