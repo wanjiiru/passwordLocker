@@ -9,7 +9,7 @@ The password locker runs on the terminal and uses short codes to navigate throug
 When you launch the app, you get the following short codes:
 
     1. cc - Creates a new account
-    2. lg - lo in
+    2. lg - logs  in
     3. ex - Exit the ap
 
 The user will be met with the following commands while signing in:
