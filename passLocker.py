@@ -69,6 +69,7 @@ class UserData:
 
     def create_password(self):
         '''
+        creates a passord and acc name
         '''
         UserData.user_data_list.append(self)
 
@@ -76,6 +77,7 @@ class UserData:
     @classmethod
     def show_user_data(cls, acc_name):
         '''
+        Displays all passwords and other acc details 
         '''
         for password in cls.user_data_list:
             if password.acc_name == acc_name:
@@ -94,6 +96,7 @@ class UserData:
     @classmethod
     def data_exists(cls, acc_name):
         '''
+        Checks if data exists
         '''
         for data in cls.user_data_list:
             if data.acc_name == acc_name:

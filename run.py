@@ -72,6 +72,7 @@ def copy_password(acc_name):
 
 def data_exist(acc_name):
     '''
+    Function to check if the data exists
     '''
     return UserData.data_exists(acc_name)
 
