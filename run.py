@@ -54,11 +54,6 @@ def show_data(mydata,):
     return UserData.show_user_data(mydata)
 
 
-# def copy_pass(acc_name):
-#     '''
-#     copies passowrd to the clipboard
-#     '''
-#     UserData.copy_password(acc_name)
 
 def copy_password(acc_name):
     '''
@@ -150,9 +145,9 @@ def main():
                                         get_name = (input("acc name : "))
                                         if data_exist(get_name):
                                             found_creds = find_creds(get_name)
-                                            copy_password(found_creds.acc_name)
+                                            copy_password(found_creds(acc_password))
                                             print("\n")
-                                            print(f"Password {found_creds.acc_password} successfully copied to clipboard, go ahead and paste it")
+                                            print(f"Password {found_creds.acc_name} successfully copied to clipboard, go ahead and paste it")
                                         else:
                                             print("You do not have any passwords yet")
                                             print("--"*10)
