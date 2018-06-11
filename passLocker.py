@@ -75,13 +75,6 @@ class UserData:
                     return password
 
 
-    # @classmethod
-    # def copy_password(cls, acc_name):
-    #     '''
-    #     '''
-    #     my_password = UserData.show_user_data(acc_name)
-    #     pyperclip.copy(my_password.acc_password)
-
 
 
     @classmethod
