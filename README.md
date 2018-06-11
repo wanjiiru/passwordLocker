@@ -6,7 +6,8 @@
 ## Description
 Password Locker is a python  application that helps users generate and store passwords for their accounts such as facebook, twitter, gmail etc
 The password locker runs on the terminal and uses short codes to navigate through it.
-When you launch the app, you get the following short codes
+When you launch the app, you get the following short codes:
+
     1. cc - Creates a new account
     2. lg - lo in
     3. ex - Exit the ap
