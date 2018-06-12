@@ -48,8 +48,8 @@ class UserData:
     '''
     class that generates new instance of user data
     '''
-    user_data_list=[]
-
+    user_data_list = []
+    user_data_list2 = str(user_data_list)
 
     def __init__(self, acc_name,acc_username, acc_password):
         '''
@@ -62,18 +62,27 @@ class UserData:
         '''
         creates a passord and acc name
         '''
-        UserData.user_data_list.append(self)
+        return UserData.user_data_list.append(self)
 
 
     @classmethod
-    def show_user_data(cls, acc_name):
+    def show_user_data(cls):
         '''
         Displays all passwords and other acc details 
         '''
-        for password in cls.user_data_list:
-            if password.acc_name == acc_name:
-                    return password
+        return cls.user_data_list
 
+
+    @classmethod
+    def find_by_acc_name(cls, acc_name):
+        '''
+        Finds user data using the user acc name
+        '''
+
+        for found in cls.user_data_list2:
+            if found == acc_name:
+                return found
+                
 
 
 
@@ -84,8 +93,7 @@ class UserData:
         '''
         for data in cls.user_data_list:
             if data.acc_name == acc_name:
-                return True
-        return False
+                return data
 
 
 

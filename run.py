@@ -5,7 +5,6 @@ import random
 import string
 import time
 import pyperclip
-
 def create_creds(uname, password):
     '''
     function that creates new credentials
@@ -21,11 +20,6 @@ def save_creds(credential):
     credential.save_creds()
 
 
-# def find_creds(uname):
-#     '''
-#     function to find credentials
-#     '''
-#     return Credential.find_by_uname(uname)
 
 
 def check_existing_cred(uname):
@@ -54,21 +48,21 @@ def create_new_data(mydata):
     mydata.create_password()
 
 
-def show_data(mydata,):
+def show_data():
     '''
     function to display the data
 
     '''
-    return UserData.show_user_data(mydata)
+    return UserData.show_user_data()
 
 
 
-def copy_password(acc_name):
-    '''
-    function to copy password to the clipboard
-    '''
-    my_password = UserData.show_user_data(acc_name)
-    pyperclip.copy(my_password.acc_password)
+# def copy_password(acc_name):
+#     '''
+#     function to copy password to the clipboard
+#     '''
+#     my_password = UserData.show_user_data(acc_name)
+#     pyperclip.copy(my_password.acc_password)
 
 def data_exist(acc_name):
     '''
@@ -77,15 +71,24 @@ def data_exist(acc_name):
     return UserData.data_exists(acc_name)
 
 
+def find_user_data(acc_name):
+        '''
+        function that finds user data by acc_name
+        '''
+
+        return UserData.find_by_acc_name(acc_name)
 
 
-def generate_password(count):
+
+
+
+def generate_password(pass_length):
     '''
     Function that generates a random password
     '''
 
     password_list = []
-    generated_password = random.sample(string.ascii_lowercase + string.digits + string.ascii_uppercase,10)
+    generated_password = random.sample(string.ascii_lowercase + string.digits + string.ascii_uppercase,pass_length)
     password_list.append(''.join(generated_password))
     return password_list
 
@@ -133,12 +136,12 @@ def main():
 
 
                                 while True:
-                                    print("Use the following short short codes : ap - add new password, cp - copy a  password , ex - exit")
+                                    print("Use the following short short codes : ap - add new password, cp - copy a  password , lp - view you passwords, ex - exit")
                                     shrt_code= input()  
                                     if shrt_code== "ap":
                                         print("Enter account name such as facebook, instagram or Gmail:.......")
                                         acc_name = input()
-                                        print("Enter username account for {acc_name}.......")
+                                        print(f"Enter username account for {acc_name}.......")
                                         acc_username = input()
                                         print("What is you preferred password length?")
                                         pass_length = int(input("Password length:"))
@@ -154,13 +157,21 @@ def main():
                                         print("Enter the account name of  password you want to copy")
                                         get_name = (input("acc name : "))
                                         if data_exist(get_name):
-                                            found_creds = (get_name)
-                                            copy_password(found_creds(acc_password))
+                                            pyperclip.copy(acc_password)
                                             print("\n")
-                                            print(f"Password {found_creds.acc_name} successfully copied to clipboard, go ahead and paste it")
+                                            print(f"Password for  {acc_name} successfully copied to clipboard, go ahead and paste it")
                                         else:
                                             print("You do not have any passwords yet")
                                             print("--"*10)
+
+
+
+                                    elif shrt_code == "lp":
+                                        if show_data():
+                                            print('\n')
+                                            for data in  show_data():
+                                                print(f"{data.acc_name}------> {data.acc_password}")
+                                                print('\n')
 
                                     elif shrt_code == "ex":
                                         print(f"Bye{log_in.uname}")
